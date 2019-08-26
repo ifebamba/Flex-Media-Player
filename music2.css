@@ -1,0 +1,224 @@
+html,  body {    
+      height: 100%; /*setting this explicitly is important*/  
+}
+
+body {
+      display: flex; 
+      flex-direction: column; 
+      margin: 0; 
+      font-family: Lato, sans-serif;
+}
+
+aside li {
+      list-style: none; 
+      font-weight: bold
+}
+
+header { 
+      background-color: azure; 
+      height:100vh;
+}
+
+main {
+      display: flex; 
+      background-color: darkgray; 
+      flex: 1 0 auto;
+ }
+
+      aside { 
+            background-color: #E78400;
+            display: flex; 
+            flex: 0 0 250px; 
+            justify-content: space-around;
+            align-items: left; 
+            flex-direction: column; 
+            padding-left: 20px;
+      }
+
+      section { 
+            background-color: rgb(187, 110, 17); 
+            display: 
+            flex; flex: 1 0 auto;
+      }
+
+footer { 
+      background: rgb(2,0,36);
+      background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 52%, rgba(50,44,22,1) 100%); 
+      height: 40px; 
+      display: flex; 
+      flex: 0 0 90px;
+}
+
+
+.play_tools {
+      display: flex;  
+      color: #fff; 
+      justify-content:  center;
+}
+
+.play_tools li { 
+      padding: 5px
+}
+
+aside i.fa {
+      font-size: 0.9em;  /*font size for the icons*/ 
+      color: #fff;
+}
+
+#whats_playing { 
+      display: flex; 
+      flex-direction: column; 
+      margin-left: -205px;  
+      overflow-x: hidden;
+      transition: 0.5s;
+}
+
+.now_playing {
+      display: flex; 
+      flex: 1 0 auto; 
+      background-image: url(img/head.jpg); background-position: center 
+}
+
+.playlist { 
+      background-color: #fff; 
+      display: flex; 
+      flex: 1 0 auto
+}
+
+ul.playlist_songs {
+      padding-left: 0;
+}
+
+ul.playlist_songs li:nth-child(2n) { 
+      background-color: rgb(250, 248, 242)
+}
+
+.playlist_songs { 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-around; 
+      flex: 1 0 auto
+}
+
+.playlist_songs li {
+      display: flex; 
+      flex-direction: row; 
+      justify-content: space-around;
+}
+
+.song, .duration { 
+      font-weight: bold
+}
+
+.genre { border: 1px solid #000; padding: 5px}
+
+.music_art{flex:0 0 200px; padding: 20px}
+
+.music_playing{
+      flex: 1 0 auto; 
+      padding: 20px; 
+      color: #fff; 
+      justify-content: center; 
+      display: flex; 
+      flex-direction: column;
+}
+
+.track_controls { flex-direction: row; display: flex; margin: 20px 0px 0px -15px }
+.track_controls li { list-style: none; padding: 0px 10px}
+.track_controls li i { padding: 0 5px; color: #CB9E7D}
+
+.track_controls li:nth-child() {padding-left: 0px}
+
+#player_icons i{
+      margin-right: 30px;
+}
+
+.openMenu {
+      display: flex; 
+      flex-direction: row
+}
+
+.closebtn {
+      margin-left: auto;
+      color: #fff;
+      background-color: #000;
+      padding: 5px;
+}
+
+footer{ 
+      display: flex; 
+      flex-direction: row; 
+      flex-grow: 1; 
+      justify-content: center
+}
+
+.music_art_little{
+      flex:0 0 100px; 
+      padding: 20px
+}
+
+.controls {
+      display: flex;
+      flex-direction: row;
+      flex: 1 0 auto;
+      border-radius: 200px;
+      justify-content: space-evenly;
+      align-items: center; }
+
+.controls li {
+      list-style: none; 
+      color: #fff; 
+      border: 2px solid #fff; 
+      padding: 10px; 
+      border-radius: 100px
+}
+
+
+.play_controls {
+      display: flex;
+      flex-direction: row;
+      flex: 0 0 500px;
+      border-radius: 200px;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-bottom: 10px; 
+}
+
+.play_controls li {list-style: none; color: #fff; }
+.play_controls li i{font-size: 30px}
+.playlist_songs li:hover { background-color: aliceblue}
+
+.slider {
+      margin-top: 50px;
+      height: 3px;
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      flex: 1 auto;
+
+}
+
+.slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 10px;
+      height: 25px;
+      background: #ffcc00;
+      cursor: pointer;
+    }
+    
+    .slider::-moz-range-thumb {
+      width: 10px;
+      height: 25px;
+      background: #ffcc00;
+      cursor: pointer;
+    }
+
+@media screen and (max-width: 64em) {
+aside {display:  none}
+.music_art{display: none}
+.now_playing{flex-direction: column}
+.music_playing{align-items: center}
+.play_visuals {display: none}
+#whats_playing { margin-left: 0 }
+}
