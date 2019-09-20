@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <script src="https://kit.fontawesome.com/f383a70ea8.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">    
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="music2.css">
+      
+
+      <title>Document</title>
+</head>
+<body>
+
+            <audio id="player" ontimeupdate="updateProgress()">
+                        <source id="source">
+                              Audio not supported.
+            </audio>
+
+            <h3 id="currentlyPlayingSong" style="display: none">Welcome to FlexPlayer V1.0</h3>
+            <h5 id="currentSong" style="display: none"></h5>
+      
+<main>
+            <aside id="player_icons">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <li class="openMenu" style="font-size:30px;cursor:pointer" onclick="openNav()">
+                              <a href="#"><i class="fa fa-bars"></i></a>
+                        </li>
+                        <li title="My Music"><a href="library.html"><i class="fa fa-home" title="My Music"></i>Music Library</a></li>
+                        <li title="Search" data-toggle="modal" data-target="#searchModal">
+                              <a href="#search"><i class="fa fa-search" title="Search Music"></i>Search</a>
+                        </li>
+                        <li title="Now Playing"><a href="index.html"><i class="fa fa-music" title="Now Playing"></i>Now playing</a></li>
+
+                        <li title="Volume">
+                              <a href="#"><i class="fa fa-volume-up" title="volume" onclick="openNav()"></i>
+                                                <input type="range" min="0" max="1" step="0.01"  id="volumeSliderMenu" class="volume">
+                              </a>
+                        </li>
+
+                        <li title="Recently Played"><a href="#recently_played"><i class="fa fa-user" title="Recently Played"></i>Recently Played</a></li>
+                        <li title="Settings"><a href="#settings"><i class="fa fa-cog"></i>Settings</a></li>
+      
+            </aside>
+
+
+
+      <!-- Search Modal -->
+      <div class="modal fade search_bg" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header text-center">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Search Music</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                  </div>
+                  <div class="modal-body">
+                        <input type="search" />
+                  </div>
+                  <div class="modal-footer">
+                        <button type="button" class="btn btn-orange">Search</button>
+                  </div>
+                  </div>
+                  </div>
+      </div>
+
+
+
+      <section id="whats_playing">
+            
+                  <div class="my_library">
+
+                        <h3>Music Library</h3>
+                        
+                        <ul class="nav nav-tabs">
+                              <li class="active"><a data-toggle="tab" href="#home">Songs</a></li>
+                              <li><a data-toggle="tab" href="#menu1">Artists</a></li>
+                              <li><a data-toggle="tab" href="#menu2">Albums</a></li>
+                        </ul>
+
+                        <div class="library_options">
+                              <p><i class="fas fa-random"></i> Shuffle</p>
+                              <p>Sort by: <select>
+                                    <option value="volvo" selected>A-Z</option>
+                                    <option value="saab">Release Year</option>
+                                    <option value="mercedes">Artist</option>
+                                    
+                              </select></p>
+                              <p>Genre:
+                                    <select>
+                                                <option value="volvo" selected>All</option>
+                                                <option value="saab">Rap</option>
+                                                <option value="mercedes">R & B</option>
+                                                <option value="audi">Rock</option>
+                                    </select>
+                              </p>
+                        </div>
+                            
+                            <div class="tab-content">
+                              <div id="home" class="tab-pane active">
+                              <h3>All Tracks</h3>
+                                <div id="playlist">
+
+            
+                              </div>
+
+                              </div>
+
+
+
+                              <div id="menu1" class="tab-pane fade">
+                                <h3>Artists</h3>
+                                <div class="artist_screen container">
+
+                                    <div class="artist_section">
+                                          <h3 class="container">A</h3>
+                                          <div class="artist_item">
+                                                      <div class="artist_art">
+                                                                  <img src="img/artist-art.jpg" alt="artist art" />
+                                                                  <div class="middle_play_btn">
+                                                                        <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                                  </div>
+                                                      </div>
+                                                        <h5>Artist Name</h5>
+                                          </div> 
+
+                                          <div class="artist_item">
+                                                      <div class="artist_art">
+                                                                  <img src="img/artist-art.jpg" alt="artist art" />
+                                                                  <div class="middle_play_btn">
+                                                                        <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                                  </div>
+                                                      </div>
+                                                      <h5>Artist Name</h5>
+                                          </div> 
+
+                                    </div>
+
+
+
+                                    <div class="artist_section">
+                                                <h3 class="container">B</h3>
+                                                <div class="artist_item">
+                                                            <div class="artist_art">
+                                                                        <img src="img/artist-art.jpg" alt="artist art" />
+                                                                        <div class="middle_play_btn">
+                                                                              <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                                        </div>
+                                                            </div>
+                                                              <h5>Artist Name</h5>
+                                                </div> 
+      
+                                                <div class="artist_item">
+                                                            <div class="artist_art">
+                                                                        <img src="img/artist-art.jpg" alt="artist art" />
+                                                                        <div class="middle_play_btn">
+                                                                              <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                                        </div>
+                                                            </div>
+                                                            <h5>Artist Name</h5>
+                                                </div> 
+
+                                                <div class="artist_item">
+                                                            <div class="artist_art">
+                                                                        <img src="img/artist-art.jpg" alt="artist art" />
+                                                                        <div class="middle_play_btn">
+                                                                              <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                                        </div>
+                                                            </div>
+                                                              <h5>Artist Name</h5>
+                                                </div> 
+      
+                                                <div class="artist_item">
+                                                            <div class="artist_art">
+                                                                        <img src="img/artist-art.jpg" alt="artist art" />
+                                                                        <div class="middle_play_btn">
+                                                                              <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                                        </div>
+                                                            </div>
+                                                            <h5>Artist Name</h5>
+                                                </div> 
+                                                
+                                                <div class="artist_item">
+                                                            <div class="artist_art">
+                                                                        <img src="img/artist-art.jpg" alt="artist art" />
+                                                                        <div class="middle_play_btn">
+                                                                              <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                                        </div>
+                                                            </div>
+                                                              <h5>Artist Name</h5>
+                                                </div> 
+      
+                                                <div class="artist_item">
+                                                            <div class="artist_art">
+                                                                        <img src="img/artist-art.jpg" alt="artist art" />
+                                                                        <div class="middle_play_btn">
+                                                                                    <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                                        </div>
+                                                            </div>
+                                                            <h5>Artist Name</h5>
+                                                </div> s
+      
+                                          </div>                                    
+
+
+
+
+                                </div>
+                              </div>
+
+
+
+                              <div id="menu2" class="tab-pane fade">
+                                <h3>Albums</h3>
+                                <div class="albums container" data-simplebar>
+
+                                    <div class="album_item">
+                                          <div class="album_art">
+                                                      <img src="img/album-art.jpg" alt="album art" />
+                                                      <div class="middle_play_btn">
+                                                            <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                      </div>
+                                          </div>
+                                            <h5>Album Name</h5>
+                                            <small>Artist Name</small>
+                                    </div>                                      
+                                      
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                     </div> 
+
+                                     <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div> 
+
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div> 
+
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div> 
+
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div>          
+                                    
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div>        
+
+
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div>        
+
+
+
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div>        
+
+
+
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div>        
+
+
+
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div>        
+
+
+
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div>        
+
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div>        
+                                    
+                                    
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div>        
+                                    
+                                    
+                                    <div class="album_item">
+                                                <div class="album_art">
+                                                            <img src="img/album-art.jpg" alt="album art" />
+                                                            <div class="middle_play_btn">
+                                                                  <i class="fa fa-play round_box_library" title="Play All"> Play</i>
+                                                            </div>
+                                                </div>
+                                                  <h5>Album Name</h5>
+                                                  <small>Artist Name</small>
+                                    </div>                                            
+                                    
+                                </div>
+                              </div>
+                            </div>
+
+                  </div>
+
+
+      </section>
+
+
+</main>
+
+
+<footer>
+            <div class="playing_now">
+                        <div id="viz_image"></div>
+                        <div id="playing_now_details">
+                              <h4 id="currentlyPlayingSong2">Waiting..</h4>
+                              <h6 id="currentSong2"></h6>
+                        </div>
+            </div>
+
+
+            <div class="play_controls">     
+                        <li><i class="fa fa-rotate-right"></i></li>             
+                        <li><i class="fa fa-step-backward"></i></li>
+                        <li class="round_box" id="click_play"><i class="fa fa-play biggy" onclick="playAudio()"></i></li>
+                        <li><i class="fa fa-step-forward"></i></li>
+                        <li><i class="fas fa-pause" onclick="pauseAudio()"></i></li>
+            </div>
+
+            <div class="vol_adjust">
+                        <div class="volume_slider">
+                                    <i class="fas fa-volume-down"></i>
+                                    <input type="range" min="0" max="1" step="0.01"  id="volumeSlider">
+                                    <i class="fas fa-volume-up"></i>
+                        </div>
+            </div>
+</footer>
+
+<script>
+            function openNav() {
+              document.getElementById("player_icons").style.width = "50px";
+              document.getElementById("whats_playing").style.marginLeft = "0px";
+            }
+            
+            function closeNav() {
+              document.getElementById("player_icons").style.width = "0";
+              document.getElementById("whats_playing").style.marginLeft= "-208px";
+            }
+            
+</script>
+
+            <script src="js/jquery-3.2.1.min.js"></script>
+            <script src="js/main.js"></script>
+            
+
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

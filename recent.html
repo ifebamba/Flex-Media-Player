@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <script src="https://kit.fontawesome.com/f383a70ea8.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">    
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="music2.css">
+      
+
+      <title>Document</title>
+</head>
+<body>
+      
+<main>
+      <aside id="player_icons">
+                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                  <li class="openMenu" style="font-size:30px;cursor:pointer" onclick="openNav()">
+                        <a href="#"><i class="fa fa-bars"></i></a>
+                  </li>
+                  <li title="My Music"><a href="#my_music"><i class="fa fa-home" title="My Music"></i>My Music</a></li>
+                  <li title="Search" data-toggle="modal" data-target="#searchModal">
+                        <a href="#search"><i class="fa fa-search" title="Search Music"></i>Search</a>
+                  </li>
+                  <li title="Now Playing"><a href="#now_playing"><i class="fa fa-volume-up" title="Now Playing"></i>Now playing</a></li>
+                  <li title="Recently Played"><a href="#recently_played"><i class="fa fa-user" title="Recently Played"></i>Recently Played</a></li>
+                  <li title="Settings"><a href="#settings"><i class="fa fa-cog"></i>Settings</a></li>
+
+                  
+
+      </aside>
+
+
+
+      <!-- Search Modal -->
+      <div class="modal fade search_bg" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header text-center">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Search Music</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                  </div>
+                  <div class="modal-body">
+                        <input type="search" />
+                  </div>
+                  <div class="modal-footer">
+                        <button type="button" class="btn btn-orange">Search</button>
+                  </div>
+                  </div>
+                  </div>
+      </div>
+
+
+
+      <section id="whats_playing">
+            
+                  <div class="my_library">
+
+                        <h3>Recently Played</h3>
+
+                        <div class="library_options">
+                              <p><i class="fas fa-random"></i> Shuffle</p>
+                              <p>Sort by: <select>
+                                    <option value="volvo" selected>Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                              </select></p>
+                              <p>Genre:
+                                    <select>
+                                                <option value="volvo" selected>Volvo</option>
+                                                <option value="saab">Saab</option>
+                                                <option value="mercedes">Mercedes</option>
+                                                <option value="audi">Audi</option>
+                                    </select>
+                              </p>
+                        </div>
+                            
+
+
+
+                        
+
+                  </div>
+
+
+      </section>
+
+
+</main>
+
+<footer>
+      <div class="play_controls">     
+            <li><i class="fa fa-rotate-right"></i></li>             
+            <li><i class="fa fa-step-backward"></i></li>
+            <li class="round_box"><i class="fa fa-play biggy"></i></li>
+            <li><i class="fa fa-step-forward"></i></li>
+            <li><i class="fa fa-random"></i></li>
+      </div>
+</footer>
+
+
+<script>
+            function openNav() {
+              document.getElementById("player_icons").style.width = "50px";
+              document.getElementById("whats_playing").style.marginLeft = "0px";
+            }
+            
+            function closeNav() {
+              document.getElementById("player_icons").style.width = "0";
+              document.getElementById("whats_playing").style.marginLeft= "-208px";
+            }
+            </script>
+            <script src="js/jquery-3.2.1.min.js"></script>
+            <script src="js/main.js"></script>
+            
+            <link rel="stylesheet" href="https://unpkg.com/browse/simplebar@4.2.0/dist/simplebar.css" />
+            <script src="https://unpkg.com/browse/simplebar@4.2.0/dist/simplebar.min.js"></script>
+
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

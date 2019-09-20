@@ -43,6 +43,7 @@ ul.playlist_songs li:nth-child(2n) { background-color: cornsilk}
 
 .track_controls li:nth-child() {padding-left: 0px}
 
+
 footer{ display: flex; flex-direction: row; flex-grow: 1}
 .music_art_little{flex:0 0 100px; padding: 20px}
 .controls {display: flex;

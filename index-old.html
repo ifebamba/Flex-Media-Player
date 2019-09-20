@@ -14,12 +14,18 @@
 </head>
 <body>
       
-<audio id="player" ontimeupdate="updateProgress()">
+<audio id="player">
       <source id="source">
             Audio not supported.
 </audio>
 
+<!-- 
+<span id="currentlyPlayingSong">
+      <em><span id="currentSong">
 
+      </span></em>
+</span>
+-->
 
 <main>
             <aside id="player_icons">
@@ -27,7 +33,7 @@
                         <li class="openMenu" style="font-size:30px;cursor:pointer" onclick="openNav()">
                               <a href="#"><i class="fa fa-bars"></i></a>
                         </li>
-                        <li title="My Music"><a href="library.html"><i class="fa fa-home" title="My Music"></i>Music Library</a></li>
+                        <li title="My Music"><a href="library.html"><i class="fa fa-home" title="My Music"></i>My Music</a></li>
                         <li title="Search" data-toggle="modal" data-target="#searchModal">
                               <a href="#search"><i class="fa fa-search" title="Search Music"></i>Search</a>
                         </li>
@@ -40,9 +46,7 @@
                         </li>
 
                         <li title="Recently Played"><a href="#recently_played"><i class="fa fa-user" title="Recently Played"></i>Recently Played</a></li>
-                        <li title="Settings" data-toggle="modal" data-target="#settingsModal">
-                              <a href="#settings"><i class="fa fa-cog"></i>Settings</a>
-                        </li>
+                        <li title="Settings"><a href="#settings"><i class="fa fa-cog"></i>Settings</a></li>
       
             </aside>
 
@@ -69,63 +73,6 @@
 
 
 
-      <!-- Settings Modal -->
-      <div class="modal fade search_bg" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                  <div class="modal-header text-center">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Settings</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                  </div>
-                  <div class="modal-body">
-
-                        <div class="switch">
-                              <h4>Media Info</h4>
-                              <h6>Automatically retrieve audio details</h6>
-                                    <!-- Default switch -->
-                                    <div class="custom-control custom-switch">
-                                          <input type="checkbox" class="custom-control-input" id="customSwitches">
-                                          <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
-                                    </div>
-                        </div>
-
-                              <br>
-
-                        <div class="switch">
-                                          <h4>Media Info</h4>
-                                          <h6>Automatically retrieve audio details</h6>
-                                                <!-- Default switch -->
-                                                <div class="custom-control custom-switch">
-                                                            <input type="checkbox" class="custom-control-input" id="customSwitches1" checked>
-                                                            <label class="custom-control-label" for="customSwitches1">Toggle this switch element</label>
-                                                </div>
-                        </div>
-
-                        <br>
-
-                        <div class="switch">
-                                    <h4>Mode</h4>
-                                    <h6>Turn Light mode On or OFF</h6>
-                                          <!-- Default switch -->
-                                          <div class="custom-control custom-switch">
-                                                      <input type="checkbox" class="custom-control-input" id="customSwitches2" checked>
-                                                      <label class="custom-control-label" for="customSwitches1">Toggle this switch element</label>
-                                          </div>
-                         </div>
-
-
-                  </div>
-                  <div class="modal-footer">
-                        <button type="button" class="btn btn-orange">Save</button>
-                  </div>
-                  </div>
-                  </div>
-      </div>
-
-
-
       <section id="whats_playing">
             
                   <div class="now_playing">
@@ -142,17 +89,20 @@
                               </div>
 
                               <div class="music_slider">
-                                    <small>0:00</small>
-                                          <progress id="progress" value="0" max="100"></progress>
-                                    <small>4:03</small>
+                                    <small>0:00</small><input type="range" min="0" max="1" value="50" step="0.01" class="slider" id="musicSlider"><small>4:03</small>
                               </div>
 
+                              <div class="volume_slider">
+                                    <i class="fas fa-volume-down"></i>
+                                    <input type="range" min="0" max="1" step="0.01"  id="volumeSlider">
+                                    <i class="fas fa-volume-up"></i>
+                              </div>
 
 
                         </div>
 
                         <div class="play_visuals">     
-                              
+                              <img src="img/viz.gif" />
                         </div>
 
 
@@ -169,30 +119,13 @@
 </main>
 
 <footer>
-            <div class="playing_now">
-                        <div id="viz_image"></div>
-                        <div id="playing_now_details">
-                              <h4 id="currentlyPlayingSong2">Waiting..</h4>
-                              <h6 id="currentSong2"></h6>
-                        </div>
-            </div>
-
-
             <div class="play_controls">     
                         <li><i class="fa fa-rotate-right"></i></li>             
-                        <li><i class="fa fa-step-backward" onclick="previousSong()"></i></li>
-                        <li class="round_box" id="click_play"><i class="fa fa-play biggy" onclick="playAudio()"></i></li>
-                        <li id="next"><i class="fa fa-step-forward"></i></li>
-                        <li><i class="fas fa-stop"></i></li>
-            </div>
-
-            <div class="vol_adjust">
-                        <div class="volume_slider">
-                                    <i class="fas fa-volume-down"></i>
-                                    <input type="range" min="0" max="1" step="0.01"  id="volumeSlider">
-                                    <i class="fas fa-volume-up"></i>
-                        </div>
-            </div>
+                        <li><i class="fa fa-step-backward"></i></li>
+                        <li class="round_box"><i class="fa fa-play biggy" onclick="playAudio()"></i></li>
+                        <li><i class="fa fa-step-forward"></i></li>
+                        <li><i class="fas fa-pause" onclick="pauseAudio()"></i></li>
+                  </div>
 </footer>
 
 
@@ -206,7 +139,7 @@
               document.getElementById("player_icons").style.width = "0";
               document.getElementById("whats_playing").style.marginLeft= "-208px";
             }
-</script>
+            </script>
             <script src="js/jquery-3.2.1.min.js"></script>
             <script src="js/main.js"></script>
 
