@@ -88,7 +88,7 @@ footer{ display: flex; flex-direction: row; flex-grow: 1}
     }
 
 @media screen and (max-width: 64em) {
-aside {display:  none}
+aside {display: none}
 .music_art{display: none}
 .now_playing{flex-direction: column}
 .music_playing{align-items: center}
