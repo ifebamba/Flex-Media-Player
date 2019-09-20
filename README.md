@@ -1,2 +1,3 @@
 # Flex Media player
-Creating a media player using HTML and CSS Flexbox
+A media player created using HTML and CSS Flexbox and Javscript.
+Javascript features includes play, pause and volume control
